@@ -11,4 +11,9 @@ A machine learning system supporting football manager
 
 ## Actual questions
 
-- Filter all players with Overall 70+? Reason: good players define their position and is help to find out how to become good player by choosing the right position based on player's attributes. [Source if idea](https://www.kaggle.com/zwzzhong/position-classification-for-fifa-19-players#Choose-players-with-more-than-70-overall-rating)
+- Filter all players with Overall 70+? Reason: good players define their position and is help to find out how to become good player by choosing the right position based on player's attributes. [Source of idea](https://www.kaggle.com/zwzzhong/position-classification-for-fifa-19-players#Choose-players-with-more-than-70-overall-rating)
+
+## Current TODO
+
+- [ ] Make EDA
+- [ ] Convers .ipynb files to .py
