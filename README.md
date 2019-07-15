@@ -8,6 +8,7 @@ A machine learning system supporting football manager
 - [Attributes descriptions](https://www.fifplay.com/encyclopedia/player-attributes/)
 - [Classification Kernel Example 1](https://www.kaggle.com/zwzzhong/position-classification-for-fifa-19-players)
 - [Classification Kernel Example 2](https://www.kaggle.com/ap1495/fifa-19-classification-regression)
+- [Plan of experiments](https://github.com/mikitachab/football-manager-ml-support/blob/master/experiments_plan.md)
 
 ## Actual questions
 
@@ -18,3 +19,4 @@ A machine learning system supporting football manager
 - [ ] Make EDA
 - [ ] Move all sections into one notebook
 - [ ] Convers .ipynb files to .py
+- [ ] Add Travis CI (markdown and python linters)
