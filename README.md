@@ -16,4 +16,5 @@ A machine learning system supporting football manager
 ## Current TODO
 
 - [ ] Make EDA
+- [ ] Move all sections into one notebook
 - [ ] Convers .ipynb files to .py

@@ -103,6 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# editors files
+.vscode/
+
 # football-manager-support files
 data.csv
 new_data.csv

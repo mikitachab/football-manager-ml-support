@@ -17,11 +17,15 @@ Po tym jak zbiór zostanie przetworzony można przeprowadzić proces eksploracji
 
 Na tym etapie chciałbym przetestować oraz porównać różne metody wyboru cech, które są dostępne w pakiecie sklearn.
 
-Przykładowe Metody
+Przykładowe Metody:
 
 - Test ANOVA
 - Rekurencyjna Eliminacja
 - Wybór na podstawie stabilności i regularyzacji L1
+
+Dodatkowe Eksperymenty:
+
+- Stworzenie nowej cechy, łącząc skorelowane cechy za pomocą PCA
 
 Celem eksperymentów jest odnalezienie najlepszego podzbioru cech. Porównanie wyników  odbędą się za pomocą bezpośrednią ewaluacją modelu uczącego (MAE, trafność, czułość, macierz konfuzji).
 
@@ -39,11 +43,6 @@ Modelowanie będzie miało kilka etapów. Każdy etap zakłada w sobie porówani
   - StandardScaler
   - RobustScaler
 
-- Kodowanie Zmiennych dyskretnych
-
-  - LabelEncoder
-  - OneHotEncoder
-
 - Wybranie Algorytmu uczenia maszynowego
 - Dostosowanie hyper-parametrów
-- Zastosowanie metody uczenia zespołu klasyfikatorów
+- Zastosowanie metody uczenia zespołu klasyfikatorów (opcjonalne)
