@@ -2,11 +2,12 @@ import pytest
 
 from data_transform import (
     transform_target_position,
-    transfrom_height, 
+    transfrom_height,
     transform_weight,
     transform_skill,
     transform_body_type
 )
+
 
 @pytest.mark.parametrize('test_input, expected', [
     ('RB', 'RB'),
@@ -38,12 +39,14 @@ from data_transform import (
 def test_transform_target_positionn(test_input, expected):
     assert transform_target_position(test_input) == expected
 
+
 @pytest.mark.parametrize('test_input, expected', [
     (r"5'7", 170.18),
     (r"6'2", 187.96),
 ])
 def test_transfrom_height(test_input, expected):
     assert transfrom_height(test_input) == expected
+
 
 @pytest.mark.parametrize('test_input, expected', [
     ('159lbs', 72.11),
@@ -58,6 +61,7 @@ def test_transform_weight(test_input, expected):
 ])
 def test_transform_skill(test_input, expected):
     assert transform_skill(test_input) == expected
+
 
 @pytest.mark.parametrize('test_input, expected', [
     ('Normal', 'Normal'),

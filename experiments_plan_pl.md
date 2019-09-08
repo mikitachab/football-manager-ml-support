@@ -7,7 +7,7 @@ Na początku jest planowana procedura przygotowania zbioru do pracy z nim. Czyli
 - Usuwanie kolumn nieprzydatnych.
 - Traktowanie danych brakujących.
 - Usuwanie cech stałych oraz quasi-stałych
-- Transformacja lub konwersja kolumn
+- Transformacja danych
 
 ## EDA
 
