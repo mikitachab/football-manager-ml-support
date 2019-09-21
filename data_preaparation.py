@@ -8,62 +8,8 @@ from data_transform import (
     transform_skill,
     transform_body_type
 )
+from static import columns_for_drop, skills_columns
 from logger import logger
-
-drop_columns = [
-    'Unnamed: 0',
-    'ID',
-    'Name',
-    'Photo',
-    'Flag',
-    'Club Logo',
-    'Club',
-    'Special',
-    'Real Face',
-    'Release Clause',
-    'Joined',
-    'Contract Valid Until',
-    'Nationality',
-    'Loaned From',
-    'GKDiving',
-    'GKHandling',
-    'GKKicking',
-    'GKPositioning',
-    'GKReflexes',
-    'Jersey Number',
-    'Value',
-    'Wage',
-    'International Reputation',
-]
-
-skills_columns = [
-    'LS',
-    'ST',
-    'RS',
-    'LW',
-    'LF',
-    'CF',
-    'RF',
-    'RW',
-    'LAM',
-    'CAM',
-    'RAM',
-    'LM',
-    'LCM',
-    'CM',
-    'RCM',
-    'RM',
-    'LWB',
-    'LDM',
-    'CDM',
-    'RDM',
-    'RWB',
-    'LB',
-    'LCB',
-    'CB',
-    'RCB',
-    'RB',
-]
 
 transform_map = {
     'Body Type': transform_body_type,
@@ -75,20 +21,33 @@ transform_map.update({skill: transform_skill for skill in skills_columns})
 
 
 def run_transform_pipeline(transform_map, dataframe):
+    logger.info('transform data')
     for column, transform_func in transform_map.items():
         logger.info(f'transform column {column}')
         dataframe[column] = dataframe[column].apply(transform_func)
     return dataframe
 
 
-def run_data_preparation_pipeline(dataframe):
+def drop_columns(dataframe):
     logger.info('droping columns')
-    dataframe.drop(columns=drop_columns, inplace=True)
+    return dataframe.drop(columns=columns_for_drop)
+
+
+def drop_nan(dataframe):
     logger.info('droping records with nan values')
-    dataframe.dropna(inplace=True)
+    return dataframe.dropna()
+
+
+def drop_goalkeepers(dataframe):
     logger.info('droping goalkeepers')
-    dataframe = dataframe[dataframe['Position'] != 'GK']
-    logger.info('transform data')
+    return dataframe[dataframe['Position'] != 'GK']
+
+
+def run_data_preparation_pipeline(dataframe):
+    logger.info('run data preparation pipeline')
+    dataframe = drop_columns(dataframe)
+    dataframe = drop_nan(dataframe)
+    dataframe = drop_goalkeepers(dataframe)
     dataframe = run_transform_pipeline(transform_map, dataframe)
     return dataframe
 

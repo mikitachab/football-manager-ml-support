@@ -1,5 +1,3 @@
-
-
 def transform_body_type(x):
     body_types = {'Stocky', 'Normal', 'Lean'}
 
@@ -38,9 +36,7 @@ def transform_skill(x):
 
 new_positions_map = {
     'ST': ['ST'],
-    'CF': ['СF'],
-    'LF': ['LF', 'LS', 'LW'],
-    'RF': ['RF', 'RS', 'RW'],
+    'F': ['CF', 'RF', 'RS', 'RW', 'LF', 'LS', 'LW'],
     'CM': ['CAM', 'CDM', 'CM'],
     'LM': ['LAM', 'LDM', 'LM', 'LCM', ],
     'RM': ['RAM', 'RCM', 'RDM', 'RM'],
