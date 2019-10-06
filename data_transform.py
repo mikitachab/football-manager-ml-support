@@ -35,8 +35,8 @@ def transform_skill(x):
 
 
 new_positions_map = {
-    'ST': ['ST'],
-    'F': ['CF', 'RF', 'RS', 'RW', 'LF', 'LS', 'LW'],
+    # 'ST': ['ST'],
+    'F': ['CF', 'RF', 'RS', 'RW', 'LF', 'LS', 'LW', 'ST'],
     'CM': ['CAM', 'CDM', 'CM'],
     'LM': ['LAM', 'LDM', 'LM', 'LCM', ],
     'RM': ['RAM', 'RCM', 'RDM', 'RM'],

@@ -55,7 +55,7 @@ def run_data_preparation_pipeline(dataframe):
 def main():
     fifa_data = pd.read_csv('csv/data.csv')
     fifa_data = run_data_preparation_pipeline(fifa_data)
-    new_filename = 'csv/new_prepared_data.csv'
+    new_filename = 'csv/new_prepared_data_st_to_f.csv'
     logger.info(f'save data to {new_filename}')
     fifa_data.to_csv(new_filename, index=False)
 
