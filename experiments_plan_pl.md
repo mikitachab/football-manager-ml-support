@@ -29,20 +29,16 @@ Dodatkowe Eksperymenty:
 
 Celem eksperymentów jest odnalezienie najlepszego podzbioru cech. Porównanie wyników  odbędą się za pomocą bezpośrednią ewaluacją modelu uczącego (MAE, trafność, czułość, macierz konfuzji).
 
-## Modelowanie
+## Eksperyment
 
-Modelowanie będzie miało kilka etapów. Każdy etap zakłada w sobie porówanie różnych metod oraz wybranie najlepszej na koniec.
+lista estymatorów  :
 
-- Przetwarzanie wartości odstających
+- KNeighborsClassifier (sklearn)
+- DecisionTreeClassifier (sklearn)
+- RandomForestClassifier (sklearn)
+- MLPClassifier (sklearn)
+- GradientBoostingClassifier (sklearn)
+- AdaBoostClassifier (sklearn)
+- XGBoost (xgboost lib)
 
-  - EllipticEnvelope
-  - OneClassSVM
-
-- Normalizacja Danych
-
-  - StandardScaler
-  - RobustScaler
-
-- Wybranie Algorytmu uczenia maszynowego
-- Dostosowanie hyper-parametrów
-- Zastosowanie metody uczenia zespołu klasyfikatorów (opcjonalne)
+Jeden eksperyment to przeprowadzenia ewaluacji modelu dla każdego estymatora z listy oraz dla różnych paramerów dotyczących konkretny estymator.
