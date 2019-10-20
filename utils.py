@@ -10,9 +10,10 @@ def train_target_split(data):
     return data.drop('Position', axis=1), data['Position']
 
 
-def draw_countplot(col, title):
-    sns.countplot(col, order=col.value_counts().index)
+def draw_countplot(col, title='', xlabel=''):
+    sns.countplot(col)
     plt.title(title)
+    plt.xlabel(xlabel)
 
 
 def resample_data(sampler, x, y):
@@ -47,18 +48,19 @@ def scale_data(data):
 
 def select_features(selector, data):
     selected_data = {}
-    selected_data['x_train'] = selector.fit_transform(data['x_train'], data['y_train'])
+    selector.fit(data['x_train'], data['y_train'])
+    selected_data['x_train'] = selector.transform(data['x_train'])
     selected_data['x_test'] = selector.transform(data['x_test'])
     selected_data['x_val'] = selector.transform(data['x_val'])
     return {**data, **selected_data}
 
 
-def plot_experiment_result(scores):
+def plot_experiment_result(scores, title=''):
     fscores = sorted([(name, score['fscore']) for name, score in scores.items()], key=lambda x: x[1])
     n_estimators = len(fscores)
     plt.figure(figsize=(12, 6))
     plt.barh(range(n_estimators), [s[1] for s in fscores], align='center')
     plt.yticks(range(n_estimators), [s[0] for s in fscores])
     plt.xlabel('score')
-    plt.title('Experiment Models Score')
+    plt.title(f'Experiment Models Score ({title})')
     plt.show()
