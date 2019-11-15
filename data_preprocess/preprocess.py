@@ -60,7 +60,7 @@ def run_preprocess_data_pipeline(data):
 
     preprocess_pipeline = [
         drop_quasi_constant_features,
-        drop_duplicate_columns,
+        # drop_duplicate_columns,
         encode_labels,
         filter_players_by_overall,
     ]

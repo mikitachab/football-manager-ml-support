@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from data_transform import (
+from .transform import (
     transform_target_position,
     transfrom_height,
     transform_weight,
@@ -11,20 +11,22 @@ from data_transform import (
 from static import columns_for_drop, skills_columns
 from logger import logger
 
+TARGET_COLUMN = 'Position'
+
 transform_map = {
     'Body Type': transform_body_type,
     'Height': transfrom_height,
     'Weight': transform_weight,
-    'Position': transform_target_position
 }
 transform_map.update({skill: transform_skill for skill in skills_columns})
 
 
-def run_transform_pipeline(transform_map, dataframe):
+def run_transform_pipeline(transform_map, dataframe, target_transform):
     logger.info('transform data')
     for column, transform_func in transform_map.items():
         logger.info(f'transform column {column}')
         dataframe[column] = dataframe[column].apply(transform_func)
+    dataframe[TARGET_COLUMN] = transform_target_position(dataframe, TARGET_COLUMN, target_transform)
     return dataframe
 
 
@@ -43,12 +45,12 @@ def drop_goalkeepers(dataframe):
     return dataframe[dataframe['Position'] != 'GK']
 
 
-def run_data_preparation_pipeline(dataframe):
+def run_data_preparation_pipeline(dataframe, target_transform):
     logger.info('run data preparation pipeline')
     dataframe = drop_columns(dataframe)
     dataframe = drop_nan(dataframe)
     dataframe = drop_goalkeepers(dataframe)
-    dataframe = run_transform_pipeline(transform_map, dataframe)
+    dataframe = run_transform_pipeline(transform_map, dataframe, target_transform)
     return dataframe
 
 
@@ -62,5 +64,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# TODO tranform to DataPreparationPipeline
